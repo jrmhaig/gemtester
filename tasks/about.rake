@@ -1,7 +1,7 @@
 
 namespace :about do
-  def n_file; "../../name.txt"; end
-  def v_file; "../../version.txt"; end
+  def n_file; "name.txt"; end
+  def v_file; "version.txt"; end
 
   task :name do
     @name ||= File.read(n_file).chomp
