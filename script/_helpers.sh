@@ -55,29 +55,29 @@ die_if_dirty() {
   die_if_untracked_changes
 }
 
-ruby_manager() {
-  local ruby_manager=""
-  if [[ "$(which rbenv)" ]]; then
-    ruby_manager="rbenv"
-  elif [[ "$(which rvm)" ]]; then
-    ruby_manager="rvm"
-  else
-    echo "Could not find a ruby manager?!"
-    exit -4
-  fi
-  echo $ruby_manager
-}
-
-switch_to_ruby() {
-  case "$(ruby_manager)" in
-    rbenv)
-      rbenv shell "$1"
-      ;;
-    rvm)
-      rvm use "$1"
-      ;;
-  esac
-}
+#ruby_manager() {
+#  local ruby_manager=""
+#  if [[ "$(which rbenv)" ]]; then
+#    ruby_manager="rbenv"
+#  elif [[ "$(which rvm)" ]]; then
+#    ruby_manager="rvm"
+#  else
+#    echo "Could not find a ruby manager?!"
+#    exit -4
+#  fi
+#  echo $ruby_manager
+#}
+#
+#switch_to_ruby() {
+#  case "$(ruby_manager)" in
+#    rbenv)
+#      rbenv shell "$1"
+#      ;;
+#    rvm)
+#      rvm use "$1"
+#      ;;
+#  esac
+#}
 
 run_in_rubies() {
   # run_in_rubies VERSIONS... COMMAND
@@ -85,17 +85,18 @@ run_in_rubies() {
   local command="${args[${#args[@]}-1]}"  # srsly bash, wtf
   unset args[${#args[@]}-1]
   local versions=("${args[@]}")
-
-  case "$(ruby_manager)" in
-    rbenv)
-      # TODO
-      echo "haven't done this yet"
-      exit -99
-      ;;
-    rvm)
-      IFS=","
-      rvm "${versions[*]}" 'do' bash -c "$command"
-      ;;
-  esac
+#
+#  case "$(ruby_manager)" in
+#    rbenv)
+#      # TODO
+#      echo "haven't done this yet"
+#      exit -99
+#      ;;
+#    rvm)
+#      IFS=","
+#      rvm "${versions[*]}" 'do' bash -c "$command"
+#      ;;
+#  esac
+  bash -c "$command"
 }
 
