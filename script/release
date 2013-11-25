@@ -41,7 +41,8 @@ parse_args() {
   fi
   # TODO: Die if version is <= current version
 
-  gem_id="${GEM_NAME}-${version}"
+  #gem_id="${GEM_NAME}-${version}"
+  gem_id="${GEM_NAME}/${version}"
 }
 
 die_if_version_already_exists() {
@@ -53,8 +54,9 @@ die_if_version_already_exists() {
 }
 
 push_version_branch() {
-  # create a branch remotely w/o creating it locally
-  git push origin master:refs/heads/$gem_id --force
+  # Create tag for the version
+  git tag -a $gem_id -m "Created by release script"
+  git push origin $gem_id
 }
 
 parse_args "$@"
