@@ -13,3 +13,7 @@ end
 def div(a,b)
   return a/b
 end
+
+def pow(a,b)
+  return a ** b
+end
