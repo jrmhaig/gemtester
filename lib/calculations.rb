@@ -9,3 +9,7 @@ end
 def sub(a,b)
   return a-b
 end
+
+def div(a,b)
+  return a/b
+end
