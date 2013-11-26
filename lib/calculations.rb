@@ -1,5 +1,5 @@
 def sum(a,b)
-  return a+b
+  return a+b+1
 end
 
 def mult(a,b)
