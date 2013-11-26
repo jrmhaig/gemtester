@@ -18,4 +18,8 @@ describe "Gemtester" do
     div(6,3).should == 2
   end
 
+  it "should do the power correctly" do
+    pow(3,4).should == 81
+  end
+
 end
