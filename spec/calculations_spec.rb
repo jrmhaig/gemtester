@@ -10,4 +10,8 @@ describe "Gemtester" do
     mult(2,5).should == 10
   end
 
+  it "should do the subtraction correctly" do
+    sub(8,3).should == 5
+  end
+
 end
