@@ -14,4 +14,8 @@ describe "Gemtester" do
     sub(8,3).should == 5
   end
 
+  it "should do the division correctly" do
+    div(6,3).should == 2
+  end
+
 end
