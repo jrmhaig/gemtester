@@ -1,8 +1,8 @@
-Gem::Specification.new do |s|
-  version = '0.0.1'
+require File.expand_path('gembuilder')
 
+Gem::Specification.new do |s|
   s.name        = 'gemtester'
-  s.version     = version 
+  s.version     = $version 
   s.date        = '2013-11-25'
   s.summary     = 'Gem tester'
   s.description = 'A tester for the automated gem pusher.'
